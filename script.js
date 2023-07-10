@@ -18,7 +18,7 @@ loadSprite("ghosty", "https://cdn.glitch.global/6e7edbfb-3679-4519-bb57-df3008b8
 
 // Add some text. The add() command adds what's called a "Game Object". It takes in a list (in [square brackets]) of "components", or properties of the object.
 add([
-    text("hello, world"),
+    text("hello, world!"),
   ])
 
 
