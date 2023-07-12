@@ -40,7 +40,7 @@ const level = addLevel([
 	tiles: {
 		"@": () => [
 			sprite("bean"),
-			area(),
+			area(), 
 			body(),
 			anchor("bot"),
 			"player",
