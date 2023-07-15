@@ -39,7 +39,7 @@ add([
   ])
 
 
-// This 
+
 const SPEED = 480
 
 setGravity(2400)
@@ -53,15 +53,15 @@ const level = addLevel([
 	tileWidth: 64,
 	tileHeight: 64,
 	// The position of the top left block
-	pos: vec2(100, 200),
+	pos: vec2(100, 400),
 	// Define what each symbol means. Each symbol has a "game object" associated with it.
 	tiles: {
 		"@": () => [
 			sprite("bean"), 
 			area(), 
 			body(),
-			anchor("bot"),
-			"player", 
+			anchor("bot"), // This one just sets where the "base" position for rendering is.
+			"player", // Including a string here adds a tag to the object that you can refer to later.
 		],
 		"=": () => [
 			sprite("grass"),
