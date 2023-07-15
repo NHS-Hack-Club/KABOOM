@@ -35,6 +35,7 @@ loadSprite("ghosty", "https://cdn.glitch.global/6e7edbfb-3679-4519-bb57-df3008b8
 // Add some text. The add() command adds what's called a "Game Object". It takes in a list (in [square brackets]) of "components", or properties of the object.
 add([
     text("hello, world!"),
+    pos(40, 40),
   ])
 
 
@@ -48,19 +49,19 @@ const level = addLevel([
 	"@  ^ $$",
 	"=======",
 ], {
-	// The size of each grid
+	// The size of each grid tile
 	tileWidth: 64,
 	tileHeight: 64,
 	// The position of the top left block
 	pos: vec2(100, 200),
-	// Define what each symbol means. Each symbol has a "game object"
+	// Define what each symbol means. Each symbol has a "game object" associated with it.
 	tiles: {
 		"@": () => [
-			sprite("bean"), // It 
+			sprite("bean"), 
 			area(), 
 			body(),
 			anchor("bot"),
-			"player",
+			"player", 
 		],
 		"=": () => [
 			sprite("grass"),
