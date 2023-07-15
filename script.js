@@ -16,6 +16,7 @@ If you want to refer to some documentation about making games this way, check ou
 
 1. Right now, it's pretty hard for Bean to jump over the spikes. Can you make Bean float a bit more?
 2. Right now, the coins just sit there when Bean hits them. Bean should be able to collect them and get rich. How can you make the coins disappear?
+3. 
 */
 
 // This line imports the Kaboom library.
