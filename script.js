@@ -10,7 +10,9 @@
 |   |  | ||   |___ |   _   ||       |    |   |  |   _   ||   |  _____| |
 |___|  |_||_______||__| |__||______|     |___|  |__| |__||___| |_______|
 
-Hello!!!! Welcome to Kaboom! In order to make this game work, you'll need to 
+Hello!!!! Welcome to Kaboom! In order to make this game work, you'll need to make a few changes. Look for my "STEP" comments below!
+
+(Comments are things you put in a code file )
 */
 
 // This line imports the Kaboom library.
