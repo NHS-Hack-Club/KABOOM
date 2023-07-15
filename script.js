@@ -10,9 +10,11 @@
 |   |  | ||   |___ |   _   ||       |    |   |  |   _   ||   |  _____| |
 |___|  |_||_______||__| |__||______|     |___|  |__| |__||___| |_______|
 
-Hello!!!! Welcome to Kaboom! In order to make this game work, you'll need to make a few changes. Look for my "STEP" comments below!
+Hello!!!! Welcome to Kaboom! In order to make this game work, you'll need to make a few changes. Look for my "STEP" comments below to see where you'll need to add some code!
 
-(Comments are things you put in a code file )
+If you want to refer to some documentation about making games this way, check out https://kaboomjs.com/. The examples (click "Playground" in the sidebar) might also be helpful.
+
+1. 
 */
 
 // This line imports the Kaboom library.
@@ -36,6 +38,7 @@ add([
   ])
 
 
+// This 
 const SPEED = 480
 
 setGravity(2400)
@@ -50,10 +53,10 @@ const level = addLevel([
 	tileHeight: 64,
 	// The position of the top left block
 	pos: vec2(100, 200),
-	// Define what each symbol means (in components)
+	// Define what each symbol means. Each symbol has a "game object"
 	tiles: {
 		"@": () => [
-			sprite("bean"),
+			sprite("bean"), // It 
 			area(), 
 			body(),
 			anchor("bot"),
