@@ -15,6 +15,7 @@ Hello!!!! Welcome to Kaboom! In order to make this game work, you'll need to mak
 If you want to refer to some documentation about making games this way, check out https://kaboomjs.com/. The examples (click "Playground" in the sidebar) might also be helpful.
 
 1. Right now, it's pretty hard for Bean to jump over the spikes. Can you make Bean float a bit more?
+2. Right now, the coins just sit there when Bean hits them. Bean should be able to collect them and get rich. How can you make the coins disappear?
 */
 
 // This line imports the Kaboom library.
@@ -104,5 +105,5 @@ player.onCollide("danger", () => {
 
 // Eat the coin!
 player.onCollide("coin", (coin) => {
-	destroy(coin)
+
 })
