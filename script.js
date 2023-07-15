@@ -14,7 +14,7 @@ Hello!!!! Welcome to Kaboom! In order to make this game work, you'll need to mak
 
 If you want to refer to some documentation about making games this way, check out https://kaboomjs.com/. The examples (click "Playground" in the sidebar) might also be helpful.
 
-1. 
+1. Right now, it's pretty hard for Bean to jump over the spikes. Can you make Bean float a bit more?
 */
 
 // This line imports the Kaboom library.
@@ -32,17 +32,12 @@ loadSprite("ghosty", "https://cdn.glitch.global/6e7edbfb-3679-4519-bb57-df3008b8
 
 
 
-// Add some text. The add() command adds what's called a "Game Object". It takes in a list (in [square brackets]) of "components", or properties of the object.
-add([
-    text("hello, world!"),
-    pos(40, 40),
-  ])
-
-
-
+// How fast the player moves
 const SPEED = 480
 
-setGravity(2400)
+
+// Set the game's gravity.
+setGravity(5000)
 
 const level = addLevel([
 	// Design the level layout with symbols
