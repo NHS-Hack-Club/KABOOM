@@ -1,5 +1,17 @@
 /* eslint-disable no-undef */ // Ignore this line, it just stops the editor from complaining.
-// Hello!!!! Welcome to Kaboom!
+
+
+/*
+ ______    _______  _______  ______     _______  __   __  ___   _______ 
+|    _ |  |       ||   _   ||      |   |       ||  | |  ||   | |       |
+|   | ||  |    ___||  |_|  ||  _    |  |_     _||  |_|  ||   | |  _____|
+|   |_||_ |   |___ |       || | |   |    |   |  |       ||   | | |_____ 
+|    __  ||    ___||       || |_|   |    |   |  |       ||   | |_____  |
+|   |  | ||   |___ |   _   ||       |    |   |  |   _   ||   |  _____| |
+|___|  |_||_______||__| |__||______|     |___|  |__| |__||___| |_______|
+
+Hello!!!! Welcome to Kaboom! In order to make this game work, you'll need to 
+*/
 
 // This line imports the Kaboom library.
 import kaboom from "https://unpkg.com/kaboom@^3000.0.12/dist/kaboom.mjs";
