@@ -18,13 +18,16 @@ If you want to refer to some documentation about making games this way, check ou
 2. Right now, the coins just sit there when Bean hits them. Bean should be able to collect them and get rich. How can you make the coins disappear?
 3. This level's looking a bit small and cramped. Why don't you make it wider, to give Bean some room to breathe?
   3b. Try adding some more variety in the objects (hint: check the Assets tab to the left for a bunch of sprites I've left you!)
+4. Add some text to the screen to explain the controls.
 */
 
 // This line imports the Kaboom library.
 import kaboom from "https://unpkg.com/kaboom@^3000.0.12/dist/kaboom.mjs";
 
 // Now, let's initialize it. This line just gives you a fullscreen canvas.
-kaboom();
+kaboom({
+  background: [135, 206, 235],
+});
 
 // Load in a sprite. I've included a few in the project (check the Assets tab to the left). To get a sprite's URL, click it in the Assets view then click "Copy URL".
 loadSprite("bean", "https://cdn.glitch.global/6e7edbfb-3679-4519-bb57-df3008b83592/bean.png?v=1688618964513")
@@ -105,7 +108,7 @@ player.onCollide("danger", () => {
 	player.pos = level.tile2Pos(0, 0)
 })
 
-// Eat the coin!
+
 player.onCollide("coin", (coin) => {
 
 })
