@@ -51,7 +51,12 @@ const levels = [
 	"@  ^ $$",
 	"=======",
   ],
-  // TODO add more levels
+
+  [
+  "  $  $   ",
+	"@        ",
+	"== == ===",
+  ],
 ]
 
 const level = addLevel(
