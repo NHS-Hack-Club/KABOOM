@@ -45,15 +45,21 @@ const SPEED = 480
 // Set the game's gravity.
 setGravity(5000)
 
-const level = addLevel([
+const levels = [
+  [
 	// Design the level layout with symbols
 	"@  ^ $$",
 	"=======",
-], {
+  ],
+  // TODO add more levels
+]
+
+const level = addLevel(
+  levels[0], {
 	// The size of each grid tile
 	tileWidth: 64,
 	tileHeight: 64,
-	// The position of the top left block
+	// The on-screen position of the top left block
 	pos: vec2(100, 400),
 	// Define what each symbol means. Each symbol has a "game object" associated with it.
 	tiles: {
