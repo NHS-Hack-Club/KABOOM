@@ -29,7 +29,7 @@ kaboom({
   background: [135, 206, 235],
 });
 
-// Load in a sprite. I've included a few in the project (check the Assets tab to the left). To get a sprite's URL, click it in the Assets view then click "Copy URL".
+// Load in a sprite. I've included a bunch in the project (check the Assets tab to the left). To get a sprite's URL, click it in the Assets view then click "Copy URL".
 loadSprite("bean", "https://cdn.glitch.global/6e7edbfb-3679-4519-bb57-df3008b83592/bean.png?v=1688618964513")
 loadSprite("coin", "https://cdn.glitch.global/6e7edbfb-3679-4519-bb57-df3008b83592/coin.png?v=1688618966800")
 loadSprite("spike", "https://cdn.glitch.global/6e7edbfb-3679-4519-bb57-df3008b83592/spike.png?v=1688618977354")
