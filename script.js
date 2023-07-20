@@ -59,7 +59,12 @@ const levels = [
   ],
 ]
 
-const level = addLevel(
+var level;
+
+
+function renderNewLevel(id) {
+  destroy(level)
+  level = addLevel(
   levels[0], {
 	// The size of each grid tile
 	tileWidth: 64,
@@ -95,6 +100,9 @@ const level = addLevel(
 		],
 	},
 })
+}
+
+renderNewLevel(0)
 
 // Get the player object from tag
 const player = level.get("player")[0]
