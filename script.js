@@ -59,7 +59,7 @@ const levels = [
   ],
 ]
 
-var level;
+var level = 0;
 
 
 function renderNewLevel(id) {
