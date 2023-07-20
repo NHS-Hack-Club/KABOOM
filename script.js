@@ -51,19 +51,17 @@ const levels = [
 	"@  ^ $$",
 	"=======",
   ],
-
-  [
-  "  $  $   ",
-	"@        ",
-	"== == ===",
-  ],
+  // TODO add more levels
 ]
 
-var level = 0;
+var levelID = 0;
+var level;
 
 
 function renderNewLevel(id) {
-  destroy(level)
+  if (level !== undefined) {
+    level.destroy()
+  }
   level = addLevel(
   levels[0], {
 	// The size of each grid tile
@@ -102,7 +100,7 @@ function renderNewLevel(id) {
 })
 }
 
-renderNewLevel(0)
+renderNewLevel(levelID)
 
 // Get the player object from tag
 const player = level.get("player")[0]
