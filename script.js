@@ -10,7 +10,7 @@
 |   |  | ||   |___ |   _   ||       |    |   |  |   _   ||   |  _____| |
 |___|  |_||_______||__| |__||______|     |___|  |__| |__||___| |_______|
 
-Hello!!!! Welcome to Kaboom! In order to make this game work, you'll need to make a few changes. Look for my "STEP" comments below to see where you'll need to add some code!
+Hello!!!! Welcome to Kaboom! In order to make this game work, you'll need to make a few changes. Look below to see where you'll need to add some code!
 
 If you want to refer to some documentation about making games this way, check out https://kaboomjs.com/. The examples (click "Playground" in the sidebar) might also be helpful.
 
