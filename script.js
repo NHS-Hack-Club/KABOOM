@@ -56,6 +56,7 @@ const levels = [
 
 var levelID = 0;
 var level;
+var player;
 
 
 function renderNewLevel(id) {
@@ -98,13 +99,14 @@ function renderNewLevel(id) {
 		],
 	},
 })
+  
+  player = level.get("player")[0]
+      initInteractions(player)
 }
 
 renderNewLevel(levelID)
 
-// Get the player object from tag
-const player = level.get("player")[0]
-
+  
 // Movements
 onKeyPress("space", () => {
 	if (player.isGrounded()) {
