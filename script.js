@@ -63,7 +63,7 @@ function renderNewLevel(id) {
     level.destroy()
   }
   level = addLevel(
-  levels[0], {
+  levels[id], {
 	// The size of each grid tile
 	tileWidth: 64,
 	tileHeight: 64,
