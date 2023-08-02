@@ -76,7 +76,7 @@ function renderNewLevel(id) {
 			sprite("bean"), 
 			area(), 
 			body(),
-			anchor("bot"), // This one just sets where the "base" position for rendering is.
+			// anchor("bot"), // This one just sets where the "base" position for rendering is.
 			"player", // Including a string here adds a tag to the object that you can refer to later.
 		],
 		"=": () => [
@@ -137,8 +137,8 @@ function initInteractions(pl) {
 // Back to the original position if hit a "danger" item
 player.onCollide("danger", () => {
 
-  addKaboom(player.pos) // Show an explosion!
-  console.log(player.pos)
+  addKaboom(vec2(width() / 2, height() / 2), {scale: 2}) // Show an explosion!
+  
 	player.pos = level.tile2Pos(0, 0)
 
 })
@@ -154,3 +154,5 @@ player.onCollide("portal", () => {
   renderNewLevel(1)
 })
 }
+
+
