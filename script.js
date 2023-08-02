@@ -131,3 +131,26 @@ player.onCollide("danger", () => {
 player.onCollide("coin", (coin) => {
 
 })
+
+function initInteractions(pl) {
+  
+// Back to the original position if hit a "danger" item
+player.onCollide("danger", () => {
+
+  addKaboom(player.pos) // Show an explosion!
+  console.log(player.pos)
+	player.pos = level.tile2Pos(0, 0)
+
+})
+
+
+player.onCollide("coin", (theCoin) => {
+  console.log("boop")
+  destroy(theCoin)
+})
+
+player.onCollide("portal", () => {
+  level.destroy()
+  renderNewLevel(1)
+})
+}
