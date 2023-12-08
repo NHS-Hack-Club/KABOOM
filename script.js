@@ -112,13 +112,18 @@ onKeyDown("right", () => {
 	player.move(SPEED, 0)
 })
 
-  
-// Back to the original position if hit a "danger" item
-player.onCollide("danger", () => {
-
+function die() {
   addKaboom(vec2(width() / 2, height() / 2), {scale: 2}) // Show an explosion!
   
 	player.pos = level.tile2Pos(0, -2);
+  player.grounded = true;
+}
+
+
+// Back to the original position if hit a "danger" item
+player.onCollide("danger", () => {
+
+  die()
 
 })
 
@@ -132,5 +137,16 @@ player.onCollide("portal", () => {
   renderNewLevel(++levelID)
 })
 
+player.onUpdate(() => {
+	// Set the viewport center to player.pos
+	camPos(player.worldPos())
+  if (player.pos.y >= 3000) {
+			die();
+	}
+})
 
+player.onPhysicsResolve(() => {
+	// Set the viewport center to player.pos
+	camPos(player.worldPos())
+})
 
