@@ -6,7 +6,7 @@ kaboom({
   background: [135, 206, 235], // sets the color of the game
 });
 
-// These are the sprites for the game (ignore the errors )
+// These are the sprites for the game (ignore the errors)
 loadSprite("bean", "https://cdn.glitch.global/6e7edbfb-3679-4519-bb57-df3008b83592/bean.png?v=1688618964513")
 loadSprite("coin", "https://cdn.glitch.global/6e7edbfb-3679-4519-bb57-df3008b83592/coin.png?v=1688618966800")
 loadSprite("spike", "https://cdn.glitch.global/6e7edbfb-3679-4519-bb57-df3008b83592/spike.png?v=1688618977354")
@@ -17,6 +17,8 @@ loadSprite("ghosty", "https://cdn.glitch.global/6e7edbfb-3679-4519-bb57-df3008b8
 
 // How fast the player moves
 const SPEED = 480
+const MAXX = 3000
+const MAXY = 3000
 
 
 // Set the game's gravity.
@@ -113,7 +115,7 @@ onKeyDown("right", () => {
 })
 
 function die() {
-  addKaboom(vec2(width() / 2, height() / 2), {scale: 2}) // Show an explosion!
+  addKaboom(player.pos.x, player, {scale: 2}) // Show an explosion!
   
 	player.pos = level.tile2Pos(0, -2);
   player.grounded = true;
@@ -140,7 +142,8 @@ player.onCollide("portal", () => {
 player.onUpdate(() => {
 	// Set the viewport center to player.pos
 	camPos(player.worldPos())
-  if (player.pos.y >= 3000) {
+  // Prevent Player from going off
+  if (player.pos.y >= MAXY || player.pos.y <= -MAXY || player.pos.x >= MAXX || player.pos.x <=- MAXX) {
 			die();
 	}
 })
