@@ -32,8 +32,8 @@ setGravity(1250)
 const levels = [
   [
   "@      ",
-	"   ^ $$",
-	"=======",
+	"   ^ $$                             ^^^",
+	"=======================================",
   ],
   [
   "@          ",
@@ -100,9 +100,17 @@ renderNewLevel(levelID) // Starts up the first level
 
   
 // Movements
+var canDoubleJump = false
 onKeyPress("space", () => {
-	if (player.isGrounded()) {
-		player.jump()
+	if (player.isGrounded() || canDoubleJump == true) {
+    if (canDoubleJump) {
+      canDoubleJump = false
+      addKaboom(vec2(player.pos.x, player.pos.y))
+    }
+    if (player.isGrounded()) {
+      canDoubleJump = true
+    }
+		player.jump()   
 	}
 })
 
@@ -115,8 +123,6 @@ onKeyDown("right", () => {
 })
 
 function die() {
-  addKaboom(player.pos.x, player, {scale: 2}) // Show an explosion!
-  
 	player.pos = level.tile2Pos(0, -2);
   player.grounded = true;
 }
