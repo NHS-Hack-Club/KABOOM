@@ -1,6 +1,7 @@
-class Level2 {
+class Level2 extends Level {
   
   constructor(global) {
+    super()
     this.global = global
     this.MAXX = 1000
     this.MAXY = 1000
@@ -58,6 +59,7 @@ class Level2 {
     })
 
     this.player = this.level.get("player")[0]
+    this.setControls(this.player, this.level);
     this.initializeInteractions();
   }
   
@@ -65,28 +67,6 @@ class Level2 {
     // Jumping
     var player = this.player
     var level = this.level
-    
-    var canDoubleJump = false
-    onKeyPress("space", () => {
-      if (player.isGrounded()) {
-        canDoubleJump = true
-        player.jump()
-      } else if (canDoubleJump) {
-        canDoubleJump = false
-        addKaboom(vec2(player.pos.x+100, player.pos.y+350), {scale: 0.5})
-        player.jump()
-      }
-    })
-
-    // Movement
-    onKeyDown("left", () => {
-      player.move(-this.global.SPEED, 0)
-    })
-
-    onKeyDown("right", () => {
-      player.move(this.global.SPEED, 0)
-    })
-
 
     // DIE
     function die() {
@@ -100,7 +80,7 @@ class Level2 {
 
     // Back to the original position if hit a "danger" item
     player.onCollide("danger", () => {
-      die()
+      this.die(player)
     })
 
     player.onCollide("coin", (theCoin) => {
@@ -112,22 +92,8 @@ class Level2 {
       camPos(player.worldPos())
       // Prevent Player from going off
       if (player.pos.y >= this.MAXY || player.pos.y <= -this.MAXY || player.pos.x >= this.MAXX || player.pos.x <=-this.MAXX) {
-          die();
+          this.die(player);
       }
-    })
-
-    player.onPhysicsResolve(() => {
-      // Set the viewport center to player.pos
-      camPos(player.worldPos())
-    })
-    
-    
-    // DO NOT CHANGE THIS SO THAT WE CAN ALWAYS GO TO THE NEXT LEVEL
-    player.onCollide("portal", () => {
-      level.destroy()
-      
-      
-      document.dispatchEvent(new CustomEvent("nextLevel"));
     })
   }
 }
