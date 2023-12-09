@@ -2,13 +2,15 @@ class Level3 {
   
   constructor(global) {
     this.global = global
+    this.MAXX = 6000
+    this.MAXY = 4000
     this.levelLayout=[
       "@      ",
       "        ^^^",
       "=============               ^^^^    ",
       "                         ========               $$$",
-      "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^    =======",
-      "                                                       ^^^^^^^^^^^^^^^^^^^",
+      "                                               =======",
+      "                                                   ^^^^^^^^^^^^^^",
       "                                                        #  ",
       "                                                =========",
     ]
@@ -76,6 +78,7 @@ class Level3 {
         player.jump()
       } else if (canDoubleJump) {
         canDoubleJump = false
+        
         addKaboom(vec2(player.pos.x+100, player.pos.y+350), {scale: 0.5})
         player.jump()
       }
@@ -95,6 +98,9 @@ class Level3 {
     function die() {
       player.pos = level.tile2Pos(0, -2);
       player.grounded = true;
+      
+      player.vel.x = 0
+      player.vel.y = 0
     }
 
 
@@ -111,7 +117,7 @@ class Level3 {
       // Set the viewport center to player.pos
       camPos(player.worldPos())
       // Prevent Player from going off
-      if (player.pos.y >= this.global.MAXY || player.pos.y <= -this.global.MAXY || player.pos.x >= this.global.MAXX || player.pos.x <=-this.global.MAXX) {
+      if (player.pos.y >= this.MAXY || player.pos.y <= -this.MAXY || player.pos.x >= this.MAXX || player.pos.x <=-this.MAXX) {
           die();
       }
     })
