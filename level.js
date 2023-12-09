@@ -1,15 +1,19 @@
 class Level {
 
     // DIE
-  die(player, level) {
-      player.pos = level.tile2Pos(0, -2);
-      player.grounded = true;
-      
-      player.vel.x = 0
-      player.vel.y = 0
+  die() {
+    var player = this.player
+    var level = this.level
+    player.pos = level.tile2Pos(0, -2);
+    player.grounded = true;
+
+    player.vel.x = 0
+    player.vel.y = 0
   }
   
-  setControls (player, level) {
+  setControls () {
+    var player = this.player
+    var level = this.level
     // Movement
     onKeyDown("left", () => {
       player.move(-480, 0)
@@ -43,5 +47,14 @@ class Level {
     })
     
     onKeyPress("r", () => this.die(player))
+    
+   player.onUpdate(() => {
+      // Set the viewport center to player.pos
+      camPos(player.worldPos())
+      // Prevent Player from going off
+      if (player.pos.y >= this.MAXY || player.pos.y <= -this.MAXY || player.pos.x >= this.MAXX || player.pos.x <=-this.MAXX) {
+          this.die();
+      }
+    })
   }
 }

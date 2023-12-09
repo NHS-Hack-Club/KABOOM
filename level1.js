@@ -59,32 +59,22 @@ class Level1 extends Level{
     })
 
     this.player = this.level.get("player")[0]
-    this.setControls(this.player, this.level)
+    this.setControls()
     this.initializeInteractions();
   }
   
   initializeInteractions() {
-    // Jumping
     var player = this.player
     var level = this.level
 
-
     // Back to the original position if hit a "danger" item
     player.onCollide("danger", () => {
-      this.die(player, level)
+      this.die()
     })
 
     player.onCollide("coin", (theCoin) => {
       destroy(theCoin)
     })
-    
-    player.onUpdate(() => {
-      // Set the viewport center to player.pos
-      camPos(player.worldPos())
-      // Prevent Player from going off
-      if (player.pos.y >= this.MAXY || player.pos.y <= -this.MAXY || player.pos.x >= this.MAXX || player.pos.x <=-this.MAXX) {
-          this.die(player, level);
-      }
-    })
+
   }
 }
