@@ -130,9 +130,7 @@ function die() {
 
 // Back to the original position if hit a "danger" item
 player.onCollide("danger", () => {
-
   die()
-
 })
 
 
