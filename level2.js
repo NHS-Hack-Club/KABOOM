@@ -121,6 +121,8 @@ class Level2 {
     player.onCollide("portal", () => {
       level.destroy()
       
+      
+      document.dispatchEvent(new CustomEvent("nextLevel"));
     })
   }
 }
