@@ -1,12 +1,69 @@
 class Level2 {
-  level = [
-    "@          ",
-    "    ^^^ $$$",
-    "============"
-  ]
+  
+  constructor(global) {
+    this.global = global
+    this.levelLayout=[
+      "@      ",
+      "$$$$$$$ $$$ #",
+      "=============",
+    ]
+    // Set the game's gravity.
+    setGravity(1250)
+  }
+  
+  renderNewLevel() {
+    this.level = addLevel(
+    this.levelLayout, {
+      // The size of each grid tile
+      tileWidth: 64,
+      tileHeight: 64,
+      // The on-screen position of the top left block
+      pos: vec2(100, 400),
+      // Define what each symbol means. Each symbol has a "game object" associated with it.
+      tiles: {
+        "@": () => [
+          sprite("bean"), 
+          area(), 
+          body(),
+          anchor("bot"), 
+          "player", // Including a string here adds a tag to the object that you can refer to later.
+        ],
+        "=": () => [
+          sprite("grass"),
+          area(),
+          body({ isStatic: true }),
+          anchor("bot"),
+        ],
+        "$": () => [
+          sprite("coin"),
+          area(),
+          anchor("bot"),
+          "coin",
+        ],
+        "^": () => [
+          sprite("spike"),
+          area(),
+          anchor("bot"),
+          "danger",
+        ],
+        "#": () => [
+          sprite("portal"),
+          area(),
+          anchor("bot"),
+          "portal"
+        ]
+      },
+    })
+
+    this.player = this.level.get("player")[0]
+    this.initializeInteractions();
+  }
   
   initializeInteractions() {
     // Jumping
+    var player = this.player
+    var level = this.level
+    
     var canDoubleJump = false
     onKeyPress("space", () => {
       if (player.isGrounded()) {
@@ -21,11 +78,11 @@ class Level2 {
 
     // Movement
     onKeyDown("left", () => {
-      player.move(-SPEED, 0)
+      player.move(-this.global.SPEED, 0)
     })
 
     onKeyDown("right", () => {
-      player.move(SPEED, 0)
+      player.move(this.global.SPEED, 0)
     })
 
 
@@ -44,19 +101,12 @@ class Level2 {
     player.onCollide("coin", (theCoin) => {
       destroy(theCoin)
     })
-
-    player.onCollide("portal", () => {
-      level.destroy()
-      console.log(++levelID)
-      renderNewLevel(levelID)
-      camPos(player.worldPos())
-    })
-
+    
     player.onUpdate(() => {
       // Set the viewport center to player.pos
       camPos(player.worldPos())
       // Prevent Player from going off
-      if (player.pos.y >= MAXY || player.pos.y <= -MAXY || player.pos.x >= MAXX || player.pos.x <=- MAXX) {
+      if (player.pos.y >= this.global.MAXY || player.pos.y <= -this.global.MAXY || player.pos.x >= this.global.MAXX || player.pos.x <=-this.global.MAXX) {
           die();
       }
     })
@@ -64,6 +114,13 @@ class Level2 {
     player.onPhysicsResolve(() => {
       // Set the viewport center to player.pos
       camPos(player.worldPos())
+    })
+    
+    
+    // DO NOT CHANGE THIS SO THAT WE CAN ALWAYS GO TO THE NEXT LEVEL
+    player.onCollide("portal", () => {
+      level.destroy()
+      
     })
   }
 }
