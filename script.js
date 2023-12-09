@@ -18,7 +18,7 @@ loadSprite("coin", "https://cdn.glitch.global/6e7edbfb-3679-4519-bb57-df3008b835
 loadSprite("spike", "https://cdn.glitch.global/6e7edbfb-3679-4519-bb57-df3008b83592/spike.png?v=1688618977354")
 loadSprite("grass", "https://cdn.glitch.global/6e7edbfb-3679-4519-bb57-df3008b83592/grass.png?v=1688618971014")
 loadSprite("ghosty", "https://cdn.glitch.global/6e7edbfb-3679-4519-bb57-df3008b83592/ghosty.png?v=1688618969880")
-loadSprie("portal", "https://cdn.glitch.global/6e7edbfb-3679-4519-bb57-df3008b83592/portal.png?v=1688618976168")
+loadSprite("portal", "https://cdn.glitch.global/6e7edbfb-3679-4519-bb57-df3008b83592/portal.png?v=1688618976168")
 
 
 
@@ -61,16 +61,8 @@ setGravity(1250)
 // Add your levels here!
 
 const levels = [
-  [
-  "@      ",
-	"   ^ $$                             ^^^    #",
-	"============================================",
-  ],
-  [
-  "@          ",
-  "    ^^^ $$$",
-  "============"
-  ]
+  level1,
+  level2,
 ]
 
 ////////////////////////////////////////////////////////////////////////////////////
@@ -105,6 +97,8 @@ function renderNewLevel(id) {
   if (level !== undefined) {
     level.destroy()
   }
+  
+  console.log(levels[id])
   
   level = addLevel(
   levels[id], {
@@ -150,6 +144,7 @@ function renderNewLevel(id) {
 })
   
   player = level.get("player")[0]
+  initializeInteractions();
 }
 
 ////////////////////////////////////////////////////////////////////////////////////
@@ -180,6 +175,9 @@ renderNewLevel(levelID) // Starts up the first level
 ////////////////////////////////////////////////////////////////////////////////////
 // Event listeners!
 
+function initializeInteractions() {
+
+// Jumping
 var canDoubleJump = false
 onKeyPress("space", () => {
   if (player.isGrounded()) {
@@ -189,11 +187,10 @@ onKeyPress("space", () => {
     canDoubleJump = false
     addKaboom(vec2(player.pos.x+100, player.pos.y+350), {scale: 0.5})
     player.jump()
-    
   }
-	
 })
 
+// Movement
 onKeyDown("left", () => {
 	player.move(-SPEED, 0)
 })
@@ -202,6 +199,8 @@ onKeyDown("right", () => {
 	player.move(SPEED, 0)
 })
 
+
+// DIE
 function die() {
 	player.pos = level.tile2Pos(0, -2);
   player.grounded = true;
@@ -213,14 +212,15 @@ player.onCollide("danger", () => {
   die()
 })
 
-
 player.onCollide("coin", (theCoin) => {
   destroy(theCoin)
 })
 
 player.onCollide("portal", () => {
   level.destroy()
-  renderNewLevel(++levelID)
+  console.log(++levelID)
+  renderNewLevel(levelID)
+	camPos(player.worldPos())
 })
 
 player.onUpdate(() => {
@@ -236,4 +236,11 @@ player.onPhysicsResolve(() => {
 	// Set the viewport center to player.pos
 	camPos(player.worldPos())
 })
+  
+  
+} // DO NOT DELETE THIS BRACKET
 
+////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
