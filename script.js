@@ -26,8 +26,8 @@ var global = {
 SPEED: 480,
 
 // The maximum x and y the player can move to (the boundaries)
-MAXX: 3000,
-MAXY: 3000,
+MAXX: 200000,
+MAXY: 100000,
 }
 
 ////////////////////////////////////////////////////////////////////////////////////
@@ -60,6 +60,7 @@ MAXY: 3000,
 const levels = [
   new Level1(global),
   new Level2(global),
+  new Level3(global)
 ]
 
 

@@ -1,11 +1,16 @@
-class Level1 {
+class Level3 {
   
   constructor(global) {
     this.global = global
     this.levelLayout=[
       "@      ",
-      "   ^ $$ ^  #",
-      "============",
+      "        ^^^",
+      "=============               ^^^^    ",
+      "                         ========               $$$",
+      "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^    =======",
+      "                                                       ^^^^^^^^^^^^^^^^^^^",
+      "                                                        #  ",
+      "                                                =========",
     ]
     // Set the game's gravity.
     setGravity(1250)
@@ -120,8 +125,8 @@ class Level1 {
     // DO NOT CHANGE THIS SO THAT WE CAN ALWAYS GO TO THE NEXT LEVEL
     player.onCollide("portal", () => {
       level.destroy()
-       
-
+      
+      
       document.dispatchEvent(new CustomEvent("nextLevel"));
     })
   }
