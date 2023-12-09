@@ -71,7 +71,7 @@ class Level1 extends Level{
 
     // Back to the original position if hit a "danger" item
     player.onCollide("danger", () => {
-      this.die(player)
+      this.die(player, level)
     })
 
     player.onCollide("coin", (theCoin) => {
@@ -83,7 +83,7 @@ class Level1 extends Level{
       camPos(player.worldPos())
       // Prevent Player from going off
       if (player.pos.y >= this.MAXY || player.pos.y <= -this.MAXY || player.pos.x >= this.MAXX || player.pos.x <=-this.MAXX) {
-          this.die(player);
+          this.die(player, level);
       }
     })
   }

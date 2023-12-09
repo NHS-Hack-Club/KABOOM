@@ -1,7 +1,7 @@
 class Level {
 
     // DIE
-  die(player) {
+  die(player, level) {
       player.pos = level.tile2Pos(0, -2);
       player.grounded = true;
       
