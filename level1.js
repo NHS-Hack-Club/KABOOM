@@ -29,6 +29,7 @@ class Level1 extends Level{
           area(), 
           body(),
           anchor("bot"), 
+          doubleJump(10),
           "player", // Including a string here adds a tag to the object that you can refer to later.
         ],
         "=": () => [

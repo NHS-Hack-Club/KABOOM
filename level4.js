@@ -1,17 +1,17 @@
-class Level2 extends Level {
-  
+class Level4 extends Level{
+  //diya
   constructor(global) {
     super()
     this.global = global
-    this.MAXX = 1000
-    this.MAXY = 1000
+    this.MAXX = 6000
+    this.MAXY = 4000
     this.levelLayout=[
-      "@      ",
-      "$$$$$$$ $$$ #",
-      "=============",
+      "@    ^^^     ^^^ $ ^^              ^^  #",
+      "=======================          =======",
+      
     ]
     // Set the game's gravity.
-    setGravity(1250)
+    setGravity(120)
   }
   
   renderNewLevel() {
@@ -77,6 +77,5 @@ class Level2 extends Level {
     player.onCollide("coin", (theCoin) => {
       destroy(theCoin)
     })
-  
   }
 }

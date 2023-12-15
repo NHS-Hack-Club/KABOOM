@@ -5,7 +5,6 @@ class Level {
     var player = this.player
     var level = this.level
     player.pos = level.tile2Pos(0, -2);
-    player.grounded = true;
 
     player.vel.x = 0
     player.vel.y = 0
@@ -23,22 +22,18 @@ class Level {
       player.move(480, 0)
     })
     
-    var canDoubleJump = false
     onKeyPress("space", () => {
-      if (player.isGrounded()) {
-        canDoubleJump = true
-        player.jump()
-      } else if (canDoubleJump) {
-        canDoubleJump = false
-        addKaboom(vec2(player.pos.x+100, player.pos.y+350), {scale: 0.5})
-        player.jump()
-      }
+      player.doubleJump();
     })
     
     player.onCollide("portal", () => {
       level.destroy()
 
       document.dispatchEvent(new CustomEvent("nextLevel"));
+    })
+    
+    player.onDoubleJump(() => {
+      addKaboom(camPos().sub(0,50), {scale: 0.5});
     })
     
     player.onPhysicsResolve(() => {
