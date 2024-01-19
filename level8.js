@@ -1,16 +1,26 @@
-class Level6 extends Level {
+class Level8 extends Level {
+  //dinh
   constructor(global) {
-    //victor
     super();
     this.global = global;
-    this.MAXX = 60000;
+    this.MAXX = 6000;
     this.MAXY = 4000;
     this.levelLayout = [
-      "@    ^^^  $$     ^^^   0               ^^       #",
-      "========================           ========      ",
+      "@    ^^^^              ",
+      "=========== ^^ ===     ",
+      "                       ",
+      "                  ===  ",
+      "                       ",
+      "               ===     ",
+      "  ^   === ^^ ==        ",
+      " ===                   ",
+      "    ^^                 ",
+      "                       ",
+      "     ==== ^^  #        "
+      
     ];
     // Set the game's gravity.
-    setGravity(160);
+    setGravity(1250);
   }
 
   renderNewLevel() {
@@ -37,7 +47,6 @@ class Level6 extends Level {
           anchor("bot"),
         ],
         $: () => [sprite("coin"), area(), anchor("bot"), "coin"],
-        0: () => [sprite("portal"), area(), anchor("bot"), "danger"],
         "^": () => [sprite("spike"), area(), anchor("bot"), "danger"],
         "#": () => [sprite("portal"), area(), anchor("bot"), "portal"],
       },

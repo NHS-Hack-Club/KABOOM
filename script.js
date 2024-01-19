@@ -1,10 +1,30 @@
 // This line imports the Kaboom library.
 import kaboom from "https://unpkg.com/kaboom@^3000.0.12/dist/kaboom.mjs";
 
-document.getElementById("startButton").addEventListener("click", ()=>{
+
+/* 
+All global variables
+Coins: For shop
+Lives: Loose each time they die  
+*/
+var global = {coins:0, lives:3}
+
+
+
+  //Checks to make sure starting level is within bounds
+  // var trueLevelNum = false;
+  
+//   while (trueLevelNum == false){
+//     
+//   }
+  
+    
+var levelID, levels=[];
+document.getElementById("startButton").addEventListener("click", () => {
+  //set starting level index if true
   kaboom({
     background: [135, 206, 235], // sets the color of the game
-    
+
   });
   // These are the sprites for the game (ignore the errors)
   loadSprite("bean", "https://cdn.glitch.global/6e7edbfb-3679-4519-bb57-df3008b83592/bean.png?v=1688618964513")
@@ -13,37 +33,34 @@ document.getElementById("startButton").addEventListener("click", ()=>{
   loadSprite("grass", "https://cdn.glitch.global/6e7edbfb-3679-4519-bb57-df3008b83592/grass.png?v=1688618971014")
   loadSprite("ghosty", "https://cdn.glitch.global/6e7edbfb-3679-4519-bb57-df3008b83592/ghosty.png?v=1688618969880")
   loadSprite("portal", "https://cdn.glitch.global/6e7edbfb-3679-4519-bb57-df3008b83592/portal.png?v=1688618976168")
-  
-  // any global variables
-  var global = {coins:0, lives:3}
-  
-  
- 
-  const levels = [
-  new Level1(global),
-  new Level2(global),
-  new Level3(global),
-  new Level4(global),
-  new Level5(global),
-  new Level6(global),
-  new Level7(global)
+  levels = [
+    new Level1(global),
+    new Level2(global),
+    new Level3(global),
+    new Level4(global),
+    new Level5(global),
+    new Level6(global),
+    new Level7(global),
+    new Level8(global)
   ]
-
-  //Sets the starting level Index
-  var levelID = Number(document.getElementById("playerLevelChoice").value);
-  
+  if (parseInt(document.getElementById("playerLevelChoice").value) <= levels.length){
+    levelID = parseInt(document.getElementById("playerLevelChoice").value);
+  }      
+  console.log(levelID)
   //Renders the first level with level Id
-  levels[levelID].renderNewLevel();
+  levels[levelID].renderNewLevel(); 
+}) 
+
   
   
-    document.addEventListener("nextLevel", () => {
+document.addEventListener("nextLevel", () => {
     if (levelID+1 >= levels.length) {
       alert("No more levels!")
     } else {
       levels[++levelID].renderNewLevel();
     }
-  })
-});
+})
+
 
 
 

@@ -18,7 +18,7 @@ class Level7 extends Level {
       "",
       "",
       "                                  #",
-      "                           ========   "
+      "                           ========   ",
     ];
     // Set the game's gravity.
     setGravity(1250);
