@@ -33,6 +33,9 @@ document.getElementById("startButton").addEventListener("click", () => {
   loadSprite("grass", "https://cdn.glitch.global/6e7edbfb-3679-4519-bb57-df3008b83592/grass.png?v=1688618971014")
   loadSprite("ghosty", "https://cdn.glitch.global/6e7edbfb-3679-4519-bb57-df3008b83592/ghosty.png?v=1688618969880")
   loadSprite("portal", "https://cdn.glitch.global/6e7edbfb-3679-4519-bb57-df3008b83592/portal.png?v=1688618976168")
+  loadSprite("ninja", "https://cdn.glitch.global/e4191fbe-6aa2-4565-b2f8-45b16c7137fd/ninja.png?v=1705703717150")
+  loadSprite("enemy", "https://cdn.glitch.global/6e7edbfb-3679-4519-bb57-df3008b83592/onion.png?v=1688618975053")
+  loadSprite("diya", "https://cdn.glitch.global/e4191fbe-6aa2-4565-b2f8-45b16c7137fd/diya.png?v=1706308399460")
   levels = [
     new Level1(global),
     new Level2(global),
@@ -41,7 +44,10 @@ document.getElementById("startButton").addEventListener("click", () => {
     new Level5(global),
     new Level6(global),
     new Level7(global),
-    new Level8(global)
+    new Level8(global),
+    new Level9(global),
+    new Level10(global),
+    new Level11(global),
   ]
   if (parseInt(document.getElementById("playerLevelChoice").value) <= levels.length){
     levelID = parseInt(document.getElementById("playerLevelChoice").value);
@@ -62,6 +68,10 @@ document.addEventListener("nextLevel", () => {
 })
 
 
+document.addEventListener("die", () => {
+  
+      levels[levelID].renderNewLevel();
+})
 
 
 

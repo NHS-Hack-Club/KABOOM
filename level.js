@@ -1,13 +1,12 @@
 class Level {
 
     // DIE
+
   die() {
     var player = this.player
     var level = this.level
-    player.pos = level.tile2Pos(0, -2);
-
-    player.vel.x = 0
-    player.vel.y = 0
+    destroy(player);
+    document.dispatchEvent(new CustomEvent("die"));
   }
   
   setControls () {
@@ -23,6 +22,10 @@ class Level {
     })
     
     onKeyPress("space", () => {
+      player.doubleJump();
+    })
+    
+    onKeyPress("up", () => {
       player.doubleJump();
     })
     

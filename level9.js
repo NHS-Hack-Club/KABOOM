@@ -1,27 +1,31 @@
-class Level7 extends Level {
-  //diya
+class Level9 extends Level {
+  //namastar ninja
   constructor(global) {
     super();
     this.global = global;
     this.MAXX = 6000;
     this.MAXY = 4000;
     this.levelLayout = [
-      "@    ^^^^^        ^^^^^",
-      "========================",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "                                  #",
-      "                           ========   ",
-    ];
+  "                  $$$$$$     $$$       ^^^$$     ",
+	"n   ^ $$      ==========     ===   =========     ",
+	"========              $$   $$   $$$$$$$$$        ",
+  "         ^         ^  ==   ==   =========    === ",
+  "        ===    ==  ==                            ",
+  "$$   ^^^                                 $$$$    ",
+  "=========  ^$$^  == ^ ==            ^^ 0======   ",
+  "           ====    ===             =====         ",
+  "                                                 ",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$",
+  "                                                 ",
+  "                                                 ",
+  "            ^^^^^^^^^^^^^^^^=                    ",
+  "            =                                    ",
+  "            =#$$$$$$$$$$$$$$                     ",
+  "            =================                    ",    ];
     // Set the game's gravity.
-    setGravity(1250);
+    setGravity(1);
   }
 
   renderNewLevel() {
@@ -33,12 +37,12 @@ class Level7 extends Level {
       pos: vec2(100, 400),
       // Define what each symbol means. Each symbol has a "game object" associated with it.
       tiles: {
-        "@": () => [
-          sprite("diya"),
+        "n": () => [
+          sprite("ghosty"),
           area(),
           body(),
           anchor("bot"),
-          doubleJump(2),
+          doubleJump(15),
           "player", // Including a string here adds a tag to the object that you can refer to later.
         ],
         "=": () => [
@@ -48,8 +52,10 @@ class Level7 extends Level {
           anchor("bot"),
         ],
         $: () => [sprite("coin"), area(), anchor("bot"), "coin"],
+        0: () => [sprite("portal"), area(), anchor("bot"), "danger"],
         "^": () => [sprite("spike"), area(), anchor("bot"), "danger"],
         "#": () => [sprite("portal"), area(), anchor("bot"), "portal"],
+        
       },
     });
 
