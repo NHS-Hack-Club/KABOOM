@@ -3,42 +3,30 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="https://glitch.com/favicon.ico" />
+    <link rel="icon" href="https://avatars.githubusercontent.com/u/153339089?s=200&v=4" />
 
     <title>NHS Kaboommmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm</title>
 
     <!-- import the webpage's stylesheet -->
-    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/styles.css" />
 
     <!-- import the webpage's javascript file -->
-    <script type="module"> import kaboom from "https://unpkg.com/kaboom@^3000.0.12/dist/kaboom.mjs";</script>
-    <script src="/level.js" defer></script>
-    <script src="/level1.js" defer></script>
-    <script src="/level2.js" defer></script>
-    <script src="/level3.js" defer></script>
-    <script src="/level4.js" defer></script>
-    <script src="/level5.js" defer></script>
-    <script src="/level6.js" defer></script>
-    <script src="/level7.js" defer></script>
-    <script src="/level8.js" defer></script>
-    <script src="/level9.js" defer></script>
-    <script src="/level10.js" defer></script>
-    <script src="/level11.js" defer></script>
-    <script type="module" src="/script.js" defer></script>
+    <script src="https://unpkg.com/kaboom@3000.0.1/dist/kaboom.js"></script>
+    <script src="/script.js" defer></script>
   </head>
   <body>
     <!-- this is the start of content -->
-    <h1>
-    <!-- Creates the button which then accepts the input -->
-      <button id="startButton">Choose your starting level</button>   
-    <!-- Gets the input for the player level -->
-      <input id="playerLevelChoice" type = "text">
-    </h1>
+    <form id="selection">
+      <!-- Creates the button which then accepts the input -->
+      <input type="submit" value="Go!!!!!!!">
+      <!-- Gets the input for the player level -->
+      <input id="playerLevelChoice" type = "text" placeholder="Choose your starting level">
+    </form>
     
     
     <div id="controls">
       <p>
-        [←]  [Space]  [→]
+        [←]&nbsp;&nbsp;&nbsp;[Space/↑]&nbsp;&nbsp;&nbsp;[→]
       </p>
       <p>
         [ r ]estart

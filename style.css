@@ -2,36 +2,40 @@
 
 /* default to border-box */
 html {
-  box-sizing: border-box;
-  font-size: 16px;
+box-sizing: border-box;
+font-size: 16px;
 }
 
 *, *:before, *:after {
-  box-sizing: inherit;
+box-sizing: inherit;
 }
 
 /* adjust typography defaults */
 body {
-  margin: 1rem;
-  font-family: sans-serif;
-  line-height: 1.5;
+margin: 1rem;
+font-family: sans-serif;
+line-height: 1.5;
 }
 
 /* images and videos max out at full width */
 img,
 video {
-  height: auto;
-  max-width: 100%;
+height: auto;
+max-width: 100%;
 }
 
 img {
-  animation: spin 3s infinite;
+animation: spin 3s infinite;
+}
+
+#selection > * {
+	font-size: 5em;
 }
 
 #controls {
-  position: fixed;
-  bottom: 0;
-  right:10px;
-  color: white;
-  font-size: 14px;
+position: fixed;
+bottom: 0;
+right:10px;
+color: white;
+font-size: 14px;
 }
